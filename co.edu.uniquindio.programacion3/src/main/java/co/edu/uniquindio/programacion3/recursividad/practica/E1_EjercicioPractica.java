@@ -8,19 +8,34 @@ public class E1_EjercicioPractica {
 //		resultado = contarDigitos(numero);
 //		System.out.println("");
 
-//		String palabra="otorrinolaringologia";
+
 //
 //		int vocales =  contarVocales(palabra, indice);
 //		System.out.println("Vocales: "+ vocales);
 
-		int indice = 0;
-		int [] arreglo = {1,0,3,2,0};
+//		int indice = 0;
+//		int [] arreglo = {1,0,3,2,0};
+//
+//
+//		int resultado = contarCerosArreglo(arreglo, indice);
+//		System.out.println("Cantidad de ceros: "+resultado);
 
+		String palabra="ElecTroEnceFAlogramma89";
+		int indice = palabra.length()-1;
+		System.out.println("Consonantes: "+ contarConsonantes(palabra, indice));
 
-		int resultado = contarCerosArreglo(arreglo, indice);
-		System.out.println("Cantidad de ceros: "+resultado);
+	}
 
-
+	private static int contarConsonantes(String palabra, int i) {
+		if(i < 0){
+			return 0;
+		}else {
+			if(isConsonante(palabra.charAt(i))){
+				return contarConsonantes(palabra, i-1)+1;
+			}else{
+				return contarConsonantes(palabra, i-1);
+			}
+		}
 	}
 
 	private static int contarCerosArreglo(int[] arreglo, int indice) {
@@ -35,7 +50,6 @@ public class E1_EjercicioPractica {
 		}
 	}
 
-
 	private static int contarVocales(String palabra, int i) {
 		if(palabra.length() == i){
 			return 0;
@@ -45,6 +59,17 @@ public class E1_EjercicioPractica {
 			}else{
 				return contarVocales(palabra, ++i);
 			}
+		}
+	}
+
+	private static boolean isConsonante(char c) {
+		if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
+		   c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U' ||
+		   c == '0' || c == '1' || c == '2' || c == '3' || c == '4' ||
+			c == '5' || c == '6' || c == '7' || c == '8' || c == '9'){
+			return false;
+		}else{
+			return true;
 		}
 	}
 
